@@ -30,14 +30,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var timerView: UIView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadGameStartSound()
+        playSound(NSBundle.mainBundle().pathForResource("GameSound", ofType: "wav")!)
         // Start game
-        playGameStartSound()
         displayQuestion()
+//        print(questionsCount)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +51,11 @@ class ViewController: UIViewController {
         let questionDictionary = trivia[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.hidden = true
+        self.timerView.bounds.size.width = 0
+        self.timerView.bounds.size.width = 300
+        UIView.animateWithDuration(15, animations: {
+                self.timerView.bounds.size.width = 0
+        })
     }
     
     func displayScore() {
@@ -74,10 +80,11 @@ class ViewController: UIViewController {
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
             correctQuestions += 1
             questionField.text = "Correct!"
+            playSound(NSBundle.mainBundle().pathForResource("Correct", ofType: "wav")!)
         } else {
             questionField.text = "Sorry, wrong answer!"
+            playSound(NSBundle.mainBundle().pathForResource("False", ofType: "wav")!)
         }
-        
         loadNextRoundWithDelay(seconds: 2)
     }
     
@@ -98,6 +105,7 @@ class ViewController: UIViewController {
         
         questionsAsked = 0
         correctQuestions = 0
+        playSound(NSBundle.mainBundle().pathForResource("GameSound", ofType: "wav")!)
         nextRound()
     }
     
@@ -117,14 +125,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func loadGameStartSound() {
-        let pathToSoundFile = NSBundle.mainBundle().pathForResource("GameSound", ofType: "wav")
-        let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
+    func playSound(path: String) {
+        let soundURL = NSURL(fileURLWithPath: path)
         AudioServicesCreateSystemSoundID(soundURL, &gameSound)
-    }
-    
-    func playGameStartSound() {
         AudioServicesPlaySystemSound(gameSound)
     }
+    
 }
 
