@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvJ-Yt-2bI">
-                                <rect key="frame" x="150" y="195.5" width="300" height="50"/>
+                                <rect key="frame" x="150" y="195" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aIX-oF-VuR"/>
@@ -37,10 +37,11 @@
                                 <state key="normal" title="Sports"/>
                                 <connections>
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oO3-IL-p51"/>
+                                    <action selector="sportsPressed:" destination="Ea8-R3-pt9" eventType="touchUpInside" id="ptn-mD-RcN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9c-JC-2Cj">
-                                <rect key="frame" x="150" y="266" width="300" height="50"/>
+                                <rect key="frame" x="150" y="265" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MMr-mc-NiD"/>
@@ -48,23 +49,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="History"/>
+                                <state key="normal" title="General knowledge"/>
                                 <connections>
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eTc-VG-cqm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N41-hO-EWp">
-                                <rect key="frame" x="150" y="335.5" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="VaJ-sU-TZi"/>
-                                    <constraint firstAttribute="width" constant="300" id="cnP-lI-LdJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Maths"/>
-                                <connections>
-                                    <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aek-Nt-Ad2"/>
+                                    <action selector="generalPressed:" destination="Ea8-R3-pt9" eventType="touchUpInside" id="CrI-j1-1qh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lightning mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpa-Hr-QbC">
@@ -76,6 +64,21 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U29-6G-OW7">
                                 <rect key="frame" x="401" y="401" width="51" height="31"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N41-hO-EWp">
+                                <rect key="frame" x="150" y="335" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VaJ-sU-TZi"/>
+                                    <constraint firstAttribute="width" constant="300" id="cnP-lI-LdJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Maths"/>
+                                <connections>
+                                    <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aek-Nt-Ad2"/>
+                                    <action selector="mathsPressed:" destination="Ea8-R3-pt9" eventType="touchUpInside" id="QNh-Xf-Exg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.16862745098039217" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -97,11 +100,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Do you know?" id="ILL-z4-Juc"/>
                     <connections>
-                        <outlet property="historyButton" destination="v9c-JC-2Cj" id="iWh-rK-cRi"/>
+                        <outlet property="generalButton" destination="v9c-JC-2Cj" id="mG1-9P-98E"/>
                         <outlet property="lightningSwitch" destination="U29-6G-OW7" id="dbx-TJ-eEf"/>
                         <outlet property="mathButton" destination="N41-hO-EWp" id="4jC-wM-OMY"/>
                         <outlet property="sportsButton" destination="wvJ-Yt-2bI" id="AUC-3H-RPh"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showQuestion" id="g7b-TD-b5w"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="openQuestion" id="g7b-TD-b5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1N-LJ-6Rv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
     
+    var categoryData: [String:AnyObject]!
+    
     var gameSound: SystemSoundID = 0
     
     let trivia: [[String : String]] = [
@@ -30,15 +32,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
-    @IBOutlet weak var timerView: UIView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = (categoryData["Category"] as! String)
+        self.navigationItem.setHidesBackButton(true, animated:false)
         playSound(NSBundle.mainBundle().pathForResource("GameSound", ofType: "wav")!)
         // Start game
         displayQuestion()
-//        print(questionsCount)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,11 +53,6 @@ class ViewController: UIViewController {
         let questionDictionary = trivia[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.hidden = true
-        self.timerView.bounds.size.width = 0
-        self.timerView.bounds.size.width = 300
-        UIView.animateWithDuration(15, animations: {
-                self.timerView.bounds.size.width = 0
-        })
     }
     
     func displayScore() {
