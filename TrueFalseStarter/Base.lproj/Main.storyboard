@@ -104,7 +104,7 @@
                         <outlet property="lightningSwitch" destination="U29-6G-OW7" id="dbx-TJ-eEf"/>
                         <outlet property="mathButton" destination="N41-hO-EWp" id="4jC-wM-OMY"/>
                         <outlet property="sportsButton" destination="wvJ-Yt-2bI" id="AUC-3H-RPh"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="openQuestion" id="g7b-TD-b5w"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="openQuestion" id="g7b-TD-b5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1N-LJ-6Rv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K17-uy-MvB">
-                                <rect key="frame" x="150" y="417" width="300" height="50"/>
+                                <rect key="frame" x="150" y="544" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="4ct-o9-Sxs"/>
@@ -148,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AS4-HX-g9f">
-                                <rect key="frame" x="150" y="324" width="300" height="50"/>
+                                <rect key="frame" x="150" y="294" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BvQ-kI-QeR"/>
@@ -161,8 +161,19 @@
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qfk-Z2-crr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaW-kK-zWX">
+                                <rect key="frame" x="150" y="374" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KJg-9j-ixN"/>
+                                    <constraint firstAttribute="width" constant="300" id="ac5-gx-NwN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="False"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1V-MS-ECi">
-                                <rect key="frame" x="150" y="244" width="300" height="50"/>
+                                <rect key="frame" x="150" y="214" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.047058823529411764" green="0.47450980392156861" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="UDS-2S-VCJ"/>
@@ -175,24 +186,42 @@
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pHS-se-fli"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMK-6J-Yxp">
+                                <rect key="frame" x="150" y="454" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="gvz-Uf-X01"/>
+                                    <constraint firstAttribute="height" constant="50" id="pvV-ND-rfh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="False"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.16862745098039217" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0lO-5o-PWr"/>
-                            <constraint firstItem="K17-uy-MvB" firstAttribute="top" secondItem="AS4-HX-g9f" secondAttribute="bottom" constant="43" id="3ql-5k-6ur"/>
+                            <constraint firstItem="kaW-kK-zWX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5dw-QA-DQ9"/>
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aai-an-FGa"/>
-                            <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="I3V-ih-1Ky" secondAttribute="bottom" constant="70" id="K1G-IF-pJu"/>
+                            <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="I3V-ih-1Ky" secondAttribute="bottom" constant="40" id="K1G-IF-pJu"/>
+                            <constraint firstItem="K17-uy-MvB" firstAttribute="top" secondItem="cMK-6J-Yxp" secondAttribute="bottom" constant="40" id="Zn3-Cj-6xz"/>
+                            <constraint firstItem="cMK-6J-Yxp" firstAttribute="top" secondItem="kaW-kK-zWX" secondAttribute="bottom" constant="30" id="eec-yg-bw3"/>
+                            <constraint firstItem="kaW-kK-zWX" firstAttribute="top" secondItem="AS4-HX-g9f" secondAttribute="bottom" constant="30" id="jD4-if-Mfm"/>
                             <constraint firstItem="AS4-HX-g9f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDJ-RR-uxC"/>
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="t46-UM-cya"/>
                             <constraint firstItem="AS4-HX-g9f" firstAttribute="top" secondItem="J1V-MS-ECi" secondAttribute="bottom" constant="30" id="tll-k8-fDV"/>
                             <constraint firstItem="K17-uy-MvB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wKS-dH-RkD"/>
+                            <constraint firstItem="cMK-6J-Yxp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wbK-D5-53A"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="falseButton" destination="AS4-HX-g9f" id="Xfj-Ws-1ey"/>
+                        <outlet property="option1Button" destination="J1V-MS-ECi" id="iRu-E5-Onw"/>
+                        <outlet property="option2Button" destination="AS4-HX-g9f" id="KEb-JU-u3f"/>
+                        <outlet property="option3Button" destination="kaW-kK-zWX" id="o2L-Za-USc"/>
+                        <outlet property="option4Button" destination="cMK-6J-Yxp" id="tbe-VJ-Uhb"/>
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
-                        <outlet property="trueButton" destination="J1V-MS-ECi" id="iZW-hy-ROl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
