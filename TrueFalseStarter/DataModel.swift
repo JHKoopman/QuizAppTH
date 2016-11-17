@@ -51,6 +51,41 @@ let sportsQuestions: [Question] = [Question(question: "Which sport is played on 
                                    
                                     ]
 
+func getQuestion(type: String, used: [Int]) -> Question {
+    var arrayToUse: [Question]
+    switch type {
+    case "Sports":
+        arrayToUse = sportsQuestions
+    case "General":
+        arrayToUse = generalQuestions
+    default:
+        arrayToUse = generalQuestions
+    }
+    let randomNumber = randomNumberGenerator(used, max: arrayToUse.count)
+    usedQuestions.append(randomNumber)
+    return arrayToUse[randomNumber]
+}
+
+var usedQuestions: [Int] = []
+
+//Random number generator
+func numberGenerator(max: Int) -> Int {
+    let randomNumber = GKRandomSource.sharedRandom().nextIntWithUpperBound(max)
+    return randomNumber
+}
+//The number created above may have been used already, here that is checked, if the number is used we generate a new one, otherwise we return it
+func randomNumberGenerator(usedNumbers: [Int], max: Int) -> Int {
+    //Get a number from the numberGenerator
+    var randomNumber = numberGenerator(max)
+    //Check if it's in the usedNumbers array
+    while usedNumbers.contains(randomNumber) {
+        //The number is already used, create a new one and check again
+        randomNumber = numberGenerator(max)
+    }
+    //Return a number that is not used before
+    return randomNumber
+}
+
 //MARK: Sound data
 
 var gameSound: SystemSoundID = 0
