@@ -11,7 +11,6 @@ import UIKit
 import GameKit
 import AudioToolbox
 
-
 //MARK: Question data
 struct Question {
     let question: String
@@ -50,7 +49,7 @@ let sportsQuestions: [Question] = [Question(question: "Which sport is played on 
                                    Question(question: "What significant sporting event took place on November 22nd 2003?", answer1: "The (2003) Footbal World Cup Final", answer2: "The (2003) Hockey World Cup Final", answer3: "The (2003) Rugby World Cup Final", answer4: nil, correctAnswer: 3)
                                    
                                     ]
-
+//Get a question from the array for the selected category, check if it's not used already
 func getQuestion(type: String, used: [Int]) -> Question {
     var arrayToUse: [Question]
     switch type {
@@ -89,7 +88,7 @@ func randomNumberGenerator(usedNumbers: [Int], max: Int) -> Int {
 //MARK: Sound data
 
 var gameSound: SystemSoundID = 0
-
+//Function to play a game sound
 func playSound(path: String) {
     let soundURL = NSURL(fileURLWithPath: path)
     AudioServicesCreateSystemSoundID(soundURL, &gameSound)

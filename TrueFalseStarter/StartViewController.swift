@@ -12,7 +12,6 @@ class StartViewController: UIViewController {
 
     @IBOutlet weak var sportsButton: UIButton!
     @IBOutlet weak var generalButton: UIButton!
-    @IBOutlet weak var mathButton: UIButton!
     @IBOutlet weak var lightningSwitch: UISwitch!
     
     override func viewDidLoad() {
@@ -31,9 +30,6 @@ class StartViewController: UIViewController {
     }
     @IBAction func generalPressed(sender: AnyObject) {
         buttonPressed(generalButton, lightning: lightningSwitch.state)
-    }
-    @IBAction func mathsPressed(sender: AnyObject) {
-        buttonPressed(mathButton, lightning: lightningSwitch.state)
     }
     
     
@@ -54,17 +50,6 @@ class StartViewController: UIViewController {
             performSegueWithIdentifier("openQuestion", sender: data)
         } else if sender == generalButton {
             let category = "General"
-            var lightning: Bool{
-                if lightningSwitch.on == true {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            let data: [String:AnyObject] = ["Category":category, "Lightning": lightning]
-            performSegueWithIdentifier("openQuestion", sender: data)
-        } else if sender == mathButton {
-            let category = "Math"
             var lightning: Bool{
                 if lightningSwitch.on == true {
                     return true

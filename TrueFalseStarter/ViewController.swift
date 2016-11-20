@@ -15,17 +15,9 @@ class ViewController: UIViewController {
     var questionsPerRound: Int = 0
     var questionsAsked = 0
     var correctQuestions = 0
-    var indexOfSelectedQuestion: Int = 0
     var question: Question = Question(question: "OOPS", answer1: "OOPS", answer2: "OOPS", answer3: "OOPS", answer4: "OOPS", correctAnswer: 1)
     
     var categoryData: [String:AnyObject]!
-    
-    let trivia: [[String : String]] = [
-        ["Question": "Only female koalas can whistle", "Answer": "False"],
-        ["Question": "Blue whales are technically whales", "Answer": "True"],
-        ["Question": "Camels are cannibalistic", "Answer": "False"],
-        ["Question": "All ducks are birds", "Answer": "True"]
-    ]
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var option1Button: UIButton!
@@ -34,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var option3Button: UIButton!
     @IBOutlet weak var option4Button: UIButton!
     @IBOutlet weak var indicatorLabel: UILabel!
+    @IBOutlet weak var option4CenterConstraint: NSLayoutConstraint!
     
 
     override func viewDidLoad() {
@@ -56,8 +49,12 @@ class ViewController: UIViewController {
         switch categoryData["Category"] as! String {
         case "Sports", "General":
             question = getQuestion(categoryData["Category"] as! String, used: usedQuestions)
-        case "Math":
-            print("create a math question")
+            if question.answer4 == nil {
+                option4CenterConstraint.constant = 400
+            } else {
+                option4CenterConstraint.constant = 0
+                option4Button.setTitle(question.answer4, forState: .Normal)
+            }
         default:
             print("Something went wrong! Oops!")
         }
@@ -67,6 +64,7 @@ class ViewController: UIViewController {
         option3Button.alpha = 1
         option4Button.alpha = 1
         questionField.text = question.question
+        questionField.adjustsFontSizeToFitWidth = true
         option1Button.setTitle(question.answer1, forState: .Normal)
         option2Button.setTitle(question.answer2, forState: .Normal)
         option3Button.setTitle(question.answer3, forState: .Normal)
@@ -101,7 +99,9 @@ class ViewController: UIViewController {
             option1Button.alpha = 0.5
             option2Button.alpha = 0.5
             option3Button.alpha = 0.5
-            option4Button.alpha = 0.5
+            if question.answer4 != nil {
+                option4Button.alpha = 0.5
+            }
             sender.alpha = 1.0
             playSound(NSBundle.mainBundle().pathForResource("Correct", ofType: "wav")!)
         } else {
@@ -111,7 +111,9 @@ class ViewController: UIViewController {
             option1Button.alpha = 0.5
             option2Button.alpha = 0.5
             option3Button.alpha = 0.5
-            option4Button.alpha = 0.5
+            if question.answer4 != nil {
+                option4Button.alpha = 0.5
+            }
             sender.alpha = 1.0
             playSound(NSBundle.mainBundle().pathForResource("False", ofType: "wav")!)
         }
