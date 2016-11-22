@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-iQ-PF2">
-                                <rect key="frame" x="20" y="94" width="560" height="81.5"/>
-                                <string key="text">Do you know? is a quiz app by Jari Koopman. There are 2 gamemodes, lightning and normal. In lightning mode you only have 15 seconds to answer a question. In normal mode there's no time limit. To get started click any of the 3 categories below!</string>
+                                <rect key="frame" x="20" y="94" width="560" height="61"/>
+                                <string key="text">Do you know? is a quiz app by Jari Koopman. There are 2 categorys, Sports and General. There's no time limit. To get started click one of the categories below!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvJ-Yt-2bI">
-                                <rect key="frame" x="150" y="195" width="300" height="50"/>
+                                <rect key="frame" x="150" y="174.5" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="aLI-Os-oez"/>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9c-JC-2Cj">
-                                <rect key="frame" x="150" y="265" width="300" height="50"/>
+                                <rect key="frame" x="150" y="244.5" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IDX-ZN-D9l"/>
