@@ -15,7 +15,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = nil
     }
     
     @IBAction func sportsPressed(sender: AnyObject) {
@@ -24,8 +23,7 @@ class StartViewController: UIViewController {
     @IBAction func generalPressed(sender: AnyObject) {
         buttonPressed(generalButton)
     }
-    //Check what button is pressed and if lightning mode is activated
-    //Than send that information to the destination VC
+    //Check what button is pressed. Than send that information to the destination VC
     func buttonPressed(sender: UIButton) {
         if sender == sportsButton {
             let category = "Sports"
@@ -40,7 +38,6 @@ class StartViewController: UIViewController {
         }
         
     }
-    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "openQuestion" {

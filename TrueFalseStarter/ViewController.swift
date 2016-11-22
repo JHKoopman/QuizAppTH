@@ -12,13 +12,14 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
+    //MARK: Variable declarations
     var questionsPerRound: Int = 0
     var questionsAsked = 0
     var correctQuestions = 0
     var question: Question = Question(question: "OOPS", answer1: "OOPS", answer2: "OOPS", answer3: "OOPS", answer4: "OOPS", correctAnswer: 1)
     
     var categoryData: String!
-    
+    //MARK: Outlets
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var option1Button: UIButton!
     @IBOutlet weak var option2Button: UIButton!
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var indicatorLabel: UILabel!
     @IBOutlet weak var option4CenterConstraint: NSLayoutConstraint!
     
-
+    //MARK: Start of code
     override func viewDidLoad() {
         super.viewDidLoad()
         usedQuestions = []
@@ -40,19 +41,17 @@ class ViewController: UIViewController {
         displayQuestion()
     }
 
+    //Method to display a question
     func displayQuestion() {
-        switch categoryData {
-        case "Sports", "General":
-            question = getQuestion(categoryData, used: usedQuestions)
-            if question.answer4 == nil {
-                option4CenterConstraint.constant = 400
-            } else {
-                option4CenterConstraint.constant = 0
-                option4Button.setTitle(question.answer4, forState: .Normal)
-            }
-        default:
-            print("Something went wrong! Oops!")
+        //Check if there's a 4th answer, if not, move the 4th answer label out of the screen
+        question = getQuestion(categoryData, used: usedQuestions)
+        if question.answer4 == nil {
+            option4CenterConstraint.constant = 400
+        } else {
+            option4CenterConstraint.constant = 0
+            option4Button.setTitle(question.answer4, forState: .Normal)
         }
+        //Update all the labels
         indicatorLabel.hidden = true
         option1Button.alpha = 1
         option2Button.alpha = 1
@@ -80,7 +79,7 @@ class ViewController: UIViewController {
         // Display play again button
         playAgainButton.setTitle("Play again!", forState: .Normal)
         playAgainButton.hidden = false
-        
+        //Display the players score
         questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
         
     }
@@ -89,7 +88,9 @@ class ViewController: UIViewController {
         // Increment the questions asked counter
         questionsAsked += 1
         let correctAnswer = question.correctAnswer
+        //Check if the correct button is pressed
         if (sender === option1Button &&  correctAnswer == 1) || (sender === option2Button && correctAnswer == 2) || (sender === option3Button && correctAnswer == 3) || (sender === option4Button && correctAnswer == 4) {
+            //Change alpha's of the buttons and play the correct sound
             correctQuestions += 1
             indicatorLabel.text = "Correct!"
             indicatorLabel.hidden = false
@@ -103,6 +104,7 @@ class ViewController: UIViewController {
             sender.alpha = 1.0
             playSound(NSBundle.mainBundle().pathForResource("Correct", ofType: "wav")!)
         } else {
+            //Change alpha's of the buttons and play the wrong sound, also show the correct answer
             var correctString = ""
             switch correctAnswer {
             case 1:
@@ -133,8 +135,10 @@ class ViewController: UIViewController {
             playSound(NSBundle.mainBundle().pathForResource("False", ofType: "wav")!)
         }
         if questionsAsked == questionsPerRound {
+            //If the round is over, display the score
             self.nextRound()
         } else {
+            //Otherwise show the Next button
             playAgainButton.setTitle("Next question", forState: UIControlState.Normal)
             playAgainButton.hidden = false
         }
@@ -151,13 +155,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playAgain() {
-        // Show the answer buttons
         if playAgainButton.titleLabel?.text == "Next question" {
+            //Show the next question
             self.nextRound()
         } else {
+            //Get back to the home screen
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    //Check if we play Sports or General
     func questionsCount(type: String) -> Int {
         var arrayToUse: [Question]!
         switch type {

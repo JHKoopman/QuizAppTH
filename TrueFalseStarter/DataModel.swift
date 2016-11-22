@@ -12,6 +12,7 @@ import GameKit
 import AudioToolbox
 
 //MARK: Question data
+//Question struct containing Question, 4 answer options and the correct answer
 struct Question {
     let question: String
     let answer1: String
@@ -21,6 +22,7 @@ struct Question {
     let correctAnswer: Int
 }
 
+//All the questions stored as an array of questions
 let generalQuestions: [Question] = [Question(question: "This was the only US President to serve more than two consecutive terms.", answer1: "George Washington", answer2: "Franklin D. Roosevelt", answer3: "Woodrow Wilson", answer4: "Andrew Jackson", correctAnswer: 2),
                                     Question(question: "Which of the following countries has the most residents?", answer1: "Nigeria", answer2: "Russia", answer3: "Iran", answer4: "Vietnam", correctAnswer: 1),
                                     Question(question: "In what year was the United Nations founded?", answer1: "1918", answer2: "1919", answer3: "1945", answer4: "1954", correctAnswer: 3),
