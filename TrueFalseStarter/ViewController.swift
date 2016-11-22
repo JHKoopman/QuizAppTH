@@ -40,11 +40,6 @@ class ViewController: UIViewController {
         displayQuestion()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func displayQuestion() {
         switch categoryData {
         case "Sports", "General":
@@ -64,10 +59,14 @@ class ViewController: UIViewController {
         option3Button.alpha = 1
         option4Button.alpha = 1
         questionField.text = question.question
-        questionField.adjustsFontSizeToFitWidth = true
         option1Button.setTitle(question.answer1, forState: .Normal)
         option2Button.setTitle(question.answer2, forState: .Normal)
         option3Button.setTitle(question.answer3, forState: .Normal)
+        questionField.adjustsFontSizeToFitWidth = true
+        option1Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        option2Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        option3Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        option4Button.titleLabel?.adjustsFontSizeToFitWidth = true
         playAgainButton.hidden = true
     }
     
@@ -104,7 +103,24 @@ class ViewController: UIViewController {
             sender.alpha = 1.0
             playSound(NSBundle.mainBundle().pathForResource("Correct", ofType: "wav")!)
         } else {
-            indicatorLabel.text = "Sorry, wrong answer!"
+            var correctString = ""
+            switch correctAnswer {
+            case 1:
+                correctString = question.answer1
+            case 2:
+                correctString = question.answer2
+            case 3:
+                correctString = question.answer3
+            case 4:
+                if question.answer4 != nil {
+                    correctString = question.answer4!
+                } else {
+                    correctString = ""
+                }
+            default:
+                print("Something went wrong! Oops!")
+            }
+            indicatorLabel.text = "Sorry, wrong answer! The correct answer is: \(correctString)"
             indicatorLabel.hidden = false
             indicatorLabel.textColor = UIColor.redColor()
             option1Button.alpha = 0.5

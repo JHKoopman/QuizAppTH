@@ -131,7 +131,7 @@
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pHS-se-fli"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRg-og-b0J">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRg-og-b0J">
                                 <rect key="frame" x="150" y="134" width="300" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="s5S-9E-m5D"/>
@@ -142,7 +142,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AS4-HX-g9f">
                                 <rect key="frame" x="150" y="245" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.047058823530000002" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.47450980392156861" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="50" id="BvQ-kI-QeR"/>
                                     <constraint firstAttribute="width" constant="300" id="Om3-XV-2sF"/>
@@ -184,24 +184,13 @@
                                     <action selector="playAgain" destination="BYZ-38-t0r" eventType="touchUpInside" id="klz-B2-JAN"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKH-5A-2dY">
-                                <rect key="frame" x="150" y="507" width="0.0" height="25"/>
-                                <color key="backgroundColor" red="0.90196078430000004" green="0.57254901960000004" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="Nmr-xH-3ro"/>
-                                    <constraint firstAttribute="width" priority="700" id="T9q-G8-761"/>
-                                    <constraint firstAttribute="height" constant="25" id="xpY-MO-BRa"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.16862745098039217" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0lO-5o-PWr"/>
                             <constraint firstItem="kaW-kK-zWX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5dw-QA-DQ9"/>
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aai-an-FGa"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WKH-5A-2dY" secondAttribute="bottom" constant="68" id="QfC-rB-vza"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="fRg-og-b0J" secondAttribute="bottom" constant="10" id="QpF-XL-z3m"/>
-                            <constraint firstItem="WKH-5A-2dY" firstAttribute="leading" secondItem="K17-uy-MvB" secondAttribute="leading" id="RTo-Qw-ufc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="K17-uy-MvB" secondAttribute="bottom" constant="1" id="SwL-v3-LJh"/>
                             <constraint firstItem="K17-uy-MvB" firstAttribute="top" secondItem="cMK-6J-Yxp" secondAttribute="bottom" constant="40" id="Zn3-Cj-6xz"/>
                             <constraint firstItem="fRg-og-b0J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e4f-xd-4Z3"/>
@@ -229,7 +218,6 @@
                         <outlet property="option4CenterConstraint" destination="wbK-D5-53A" id="3lr-Ty-MOL"/>
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
-                        <outlet property="timerView" destination="WKH-5A-2dY" id="Dkk-7i-53C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
