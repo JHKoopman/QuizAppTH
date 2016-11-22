@@ -12,52 +12,28 @@ class StartViewController: UIViewController {
 
     @IBOutlet weak var sportsButton: UIButton!
     @IBOutlet weak var generalButton: UIButton!
-    @IBOutlet weak var lightningSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = nil
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func sportsPressed(sender: AnyObject) {
-        buttonPressed(sportsButton, lightning: lightningSwitch.state)
+        buttonPressed(sportsButton)
     }
     @IBAction func generalPressed(sender: AnyObject) {
-        buttonPressed(generalButton, lightning: lightningSwitch.state)
+        buttonPressed(generalButton)
     }
-    
-    
-    
-    
-    
-    func buttonPressed(sender: UIButton, lightning: UIControlState) {
+    //Check what button is pressed and if lightning mode is activated
+    //Than send that information to the destination VC
+    func buttonPressed(sender: UIButton) {
         if sender == sportsButton {
             let category = "Sports"
-            var lightning: Bool{
-                if lightningSwitch.on == true {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            let data: [String:AnyObject] = ["Category":category, "Lightning": lightning]
+            let data: String = category
             performSegueWithIdentifier("openQuestion", sender: data)
         } else if sender == generalButton {
             let category = "General"
-            var lightning: Bool{
-                if lightningSwitch.on == true {
-                    return true
-                } else {
-                    return false
-                }
-            }
-            let data: [String:AnyObject] = ["Category":category, "Lightning": lightning]
+            let data: String = category
             performSegueWithIdentifier("openQuestion", sender: data)
         } else {
             print("Something's wrong")
@@ -65,13 +41,11 @@ class StartViewController: UIViewController {
         
     }
     
-
-    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "openQuestion" {
             if let questionVC = segue.destinationViewController as? ViewController {
-                questionVC.categoryData = sender as! [String:AnyObject]
+                questionVC.categoryData = sender as! String
             }
         }
     }

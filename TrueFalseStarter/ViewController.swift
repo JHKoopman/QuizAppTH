@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var correctQuestions = 0
     var question: Question = Question(question: "OOPS", answer1: "OOPS", answer2: "OOPS", answer3: "OOPS", answer4: "OOPS", correctAnswer: 1)
     
-    var categoryData: [String:AnyObject]!
+    var categoryData: String!
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var option1Button: UIButton!
@@ -32,8 +32,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         usedQuestions = []
-        questionsPerRound = questionsCount(categoryData["Category"] as! String)
-        self.title = "Do you know \(categoryData["Category"] as! String)?"
+        questionsPerRound = questionsCount(categoryData)
+        self.title = "Do you know \(categoryData)?"
         self.navigationItem.setHidesBackButton(true, animated:false)
         playSound(NSBundle.mainBundle().pathForResource("GameSound", ofType: "wav")!)
         // Start game
@@ -46,9 +46,9 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        switch categoryData["Category"] as! String {
+        switch categoryData {
         case "Sports", "General":
-            question = getQuestion(categoryData["Category"] as! String, used: usedQuestions)
+            question = getQuestion(categoryData, used: usedQuestions)
             if question.answer4 == nil {
                 option4CenterConstraint.constant = 400
             } else {
@@ -90,7 +90,6 @@ class ViewController: UIViewController {
         // Increment the questions asked counter
         questionsAsked += 1
         let correctAnswer = question.correctAnswer
-        
         if (sender === option1Button &&  correctAnswer == 1) || (sender === option2Button && correctAnswer == 2) || (sender === option3Button && correctAnswer == 3) || (sender === option4Button && correctAnswer == 4) {
             correctQuestions += 1
             indicatorLabel.text = "Correct!"
